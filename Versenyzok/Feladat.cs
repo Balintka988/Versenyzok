@@ -12,7 +12,7 @@
 
         public List<Pilotak> PilotakLista = new List<Pilotak>();
 
-        //1.Feladat
+        //1.Feladat sdfsdfsddddddd
         public List<Pilotak> Beolvas()
         {
             StreamReader srBe = new StreamReader(FajlBe);
