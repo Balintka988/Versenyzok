@@ -9,6 +9,7 @@
         }
 
         public string FajlBe { get; set; }
+
         public List<Pilotak> PilotakLista = new List<Pilotak>();
 
         //1.Feladat 

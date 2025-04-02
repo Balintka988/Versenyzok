@@ -16,7 +16,6 @@
             //4.Feladat
             Console.WriteLine("4. feladat: ");
             string utolso_nev = pilota.PilotakLista.Last().Nev;
-            //Console.WriteLine($"Az utolsó versenyző neve: {pilota.PilotakLista.Last().Nev}");
             Console.WriteLine($"Az utolsó versenyző neve: {utolso_nev}");
 
             //5.Feladat
