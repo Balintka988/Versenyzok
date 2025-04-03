@@ -53,9 +53,10 @@
 
             foreach (var pilota in pilotakXIX)
             {
-                Console.WriteLine($"- {pilota.Nev} {pilota.Szuletesiev.ToString("yyyy. MM. dd")}");
+                Console.WriteLine($"\t{pilota.Nev} {pilota.Szuletesiev.ToString("(yyyy. MM. dd)")}");
             }
         }
+        //6.Feladat
         public void LegkisebbRajtszam()
         {
             var legkisebbRajtszam = PilotakLista.Min(p => p.Rajtszam);
@@ -64,8 +65,17 @@
 
             foreach (var pilota in legkisebbRajtszamuPilota)
             {
-                Console.WriteLine($"BlablablaBlüblüblü:{pilota.Nemzetiseg}");
+                Console.WriteLine($"6. feladat: {pilota.Nemzetiseg}");
             }
+        }
+        public List<int> TobbszorosRajtszam()
+        {
+            return PilotakLista
+                .Where(p => p.Rajtszam.HasValue)  // Szűrjük ki azokat, akiknek nincs rajtszáma
+                .GroupBy(p => p.Rajtszam.Value)   // Csoportosítjuk az azonos rajtszámokat
+                .Where(g => g.Count() > 1)        // Megtartjuk azokat, ahol több mint 1 pilóta van
+                .Select(g => g.Key)               // Kinyerjük a rajtszámokat
+                .ToList();                         // Listává alakítjuk az eredményt
         }
     }
 }
