@@ -71,11 +71,11 @@
         public List<int> TobbszorosRajtszam()
         {
             return PilotakLista
-                .Where(p => p.Rajtszam.HasValue)  // Szűrjük ki azokat, akiknek nincs rajtszáma
-                .GroupBy(p => p.Rajtszam.Value)   // Csoportosítjuk az azonos rajtszámokat
-                .Where(g => g.Count() > 1)        // Megtartjuk azokat, ahol több mint 1 pilóta van
-                .Select(g => g.Key)               // Kinyerjük a rajtszámokat
-                .ToList();                         // Listává alakítjuk az eredményt
+                .Where(p => p.Rajtszam.HasValue)
+                .GroupBy(p => p.Rajtszam.Value)
+                .Where(g => g.Count() > 1)
+                .Select(g => g.Key)
+                .ToList();
         }
     }
 }
