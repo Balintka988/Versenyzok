@@ -18,11 +18,11 @@
             StreamReader srBe = new StreamReader(FajlBe);
             List<Pilotak> pilotakLista = new List<Pilotak>();
 
-            string row = srBe.ReadLine();
+            string row1 = srBe.ReadLine();
 
             while (!srBe.EndOfStream)
             {
-                row = srBe.ReadLine();
+                string row = srBe.ReadLine();
 
                 string[] pilotaktemp = row.Split(';');
                 Pilotak pilotak = new Pilotak();
@@ -48,12 +48,12 @@
         //5.Feladat
         public void KiszuletettXIXElott()
         {
-            var pilotakXIX = PilotakLista.Where(p => p.Szuletesiev.Year < 1901)
-                .Select(p => new { p.Nev, p.Szuletesiev});
+            var pilotakXIX = PilotakLista
+                .Where(p => p.Szuletesiev.Year < 1901);
 
             foreach (var pilota in pilotakXIX)
             {
-                Console.WriteLine($"\t{pilota.Nev} {pilota.Szuletesiev.ToString("(yyyy. MM. dd)")}");
+                Console.WriteLine($"\t{pilota.Nev} {pilota.Szuletesiev.ToString("(yyyy. MM. dd.)")}");
             }
         }
         //6.Feladat
@@ -61,17 +61,15 @@
         {
             var legkisebbRajtszam = PilotakLista.Min(p => p.Rajtszam);
             var legkisebbRajtszamuPilota = PilotakLista.Where(p => p.Rajtszam == legkisebbRajtszam)
-                .Select(p => new {p.Nemzetiseg});
-
-            foreach (var pilota in legkisebbRajtszamuPilota)
-            {
-                Console.WriteLine($"6. feladat: {pilota.Nemzetiseg}");
-            }
+                .Select(p => new {p.Nemzetiseg})
+                .First();
+            Console.WriteLine($"6. feladat: {legkisebbRajtszamuPilota.Nemzetiseg}");
         }
+        //7.Feladat
         public List<int> TobbszorosRajtszam()
         {
             return PilotakLista
-                .Where(p => p.Rajtszam.HasValue)
+                .Where(p => p.Rajtszam != null)
                 .GroupBy(p => p.Rajtszam.Value)
                 .Where(g => g.Count() > 1)
                 .Select(g => g.Key)

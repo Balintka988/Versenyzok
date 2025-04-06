@@ -25,7 +25,13 @@
 
             //7. Feladat
             var tobbszorosRajtszamok = pilota.TobbszorosRajtszam();
-            Console.WriteLine("7. feladat: " + string.Join(", ", tobbszorosRajtszamok));
+            Console.Write("7. feladat: ");
+            foreach (var rajtszam in tobbszorosRajtszamok)
+            {
+                Console.Write($"{rajtszam}");
+                if (rajtszam != tobbszorosRajtszamok.Last())
+                    Console.Write(", ");
+            }
         }
     }
 }
