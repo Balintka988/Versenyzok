@@ -18,10 +18,15 @@
 
             //5.Feladat
             Console.WriteLine("5. feladat: ");
-            pilota.KiszuletettXIXElott();
+            var rajtszamok = pilota.KiszuletettXIXElott();
+            foreach (var rajtszam in rajtszamok)
+            {
+                Console.WriteLine($"\t{rajtszam.Nev} {rajtszam.Szuletesiev.ToString("(yyyy. MM. dd.)")}");
+            }
 
             //6.Feladat
-            pilota.LegkisebbRajtszam();
+            string legkisebbPilotaNemzetiseg = pilota.LegkisebbRajtszam();
+            Console.WriteLine($"6. feladat: {legkisebbPilotaNemzetiseg}");
 
             //7. Feladat
             var tobbszorosRajtszamok = pilota.TobbszorosRajtszam();

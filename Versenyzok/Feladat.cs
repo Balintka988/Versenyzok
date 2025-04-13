@@ -46,24 +46,21 @@
             return pilotakLista;
         }
         //5.Feladat
-        public void KiszuletettXIXElott()
+        public List<Pilotak> KiszuletettXIXElott()
         {
-            var pilotakXIX = PilotakLista
-                .Where(p => p.Szuletesiev.Year < 1901);
-
-            foreach (var pilota in pilotakXIX)
-            {
-                Console.WriteLine($"\t{pilota.Nev} {pilota.Szuletesiev.ToString("(yyyy. MM. dd.)")}");
-            }
+            return PilotakLista
+                .Where(p => p.Szuletesiev.Year < 1901)
+                .ToList();
         }
+
         //6.Feladat
-        public void LegkisebbRajtszam()
+        public string LegkisebbRajtszam()
         {
             var legkisebbRajtszam = PilotakLista.Min(p => p.Rajtszam);
             var legkisebbRajtszamuPilota = PilotakLista.Where(p => p.Rajtszam == legkisebbRajtszam)
                 .Select(p => new {p.Nemzetiseg})
                 .First();
-            Console.WriteLine($"6. feladat: {legkisebbRajtszamuPilota.Nemzetiseg}");
+            return legkisebbRajtszamuPilota.Nemzetiseg;
         }
         //7.Feladat
         public List<int> TobbszorosRajtszam()
