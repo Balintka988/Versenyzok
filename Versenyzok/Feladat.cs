@@ -29,7 +29,6 @@
                 pilotak.Nev = pilotaktemp[0];
                 pilotak.Szuletesiev = DateTime.Parse(pilotaktemp[1]);
                 pilotak.Nemzetiseg = pilotaktemp[2];
-                //pilotak.Rajtszam = int.Parse(pilotaktemp[3]);
 
                 if(string.IsNullOrEmpty(pilotaktemp[3]))
                 {
